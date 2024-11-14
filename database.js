@@ -21,5 +21,4 @@ const getExercis = async (id) => {
   const row = await pool.query(`SELECT * FROM exercisess WHERE id=?`, [id]);
   return row[0];
 };
-
 export { getExercises, getExercis };

@@ -1,7 +1,9 @@
 import express from "express";
 import { getExercises } from "./database.js";
 import { getExercis } from "./database.js";
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
 
 app.get("/", (reg, res) => {
@@ -31,5 +33,5 @@ app.use((err, req, res) => {
 });
 
 app.listen(8000, () => {
-  console.log("server is running on port 8000");
+  console.log("server is running on port 8000", process.env.MYSQL_HOST);
 });
