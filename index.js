@@ -4,14 +4,16 @@ import { getExercis } from "./database.js";
 import dotenv from "dotenv";
 
 dotenv.config();
+
 const app = express();
 
-app.get("/", (reg, res) => {
-  res.send(
-    `<h1>welcome to main page</h1> </br>
-     <a style='font-size:25px' href='/exercises'>/exercises</a>
-     `
-  );
+app.get("/", async (reg, res) => {
+  const exercises = await getExercises();
+  res.send(exercises); // res.send(
+  //   `<h1>welcome to main page</h1> </br>
+  //    <a style='font-size:25px' href='/exercises'>/exercises</a>
+  //    `
+  // );
 });
 
 app.get("/exercises", async (reg, res) => {
