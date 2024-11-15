@@ -1,14 +1,15 @@
-import mysql, { createPool } from "mysql2";
 import dotenv from "dotenv";
+
+import mysql from "mysql2";
 
 dotenv.config();
 
 const pool = mysql
   .createPool({
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
   })
   .promise();
 
@@ -22,3 +23,8 @@ const getExercis = async (id) => {
   return row[0];
 };
 export { getExercises, getExercis };
+
+console.log(process.env.DB_HOST);
+console.log(process.env.DB_USER);
+console.log(process.env.DB_PASSWORD);
+console.log(process.env.DB_NAME);

@@ -35,5 +35,5 @@ app.use((err, req, res) => {
 });
 
 app.listen(8000, () => {
-  console.log("server is running on port 8000", process.env.MYSQL_HOST);
+  console.log("server is running on port 8000", process.env.DB_HOST);
 });
